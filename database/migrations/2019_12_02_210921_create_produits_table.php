@@ -14,9 +14,9 @@ class CreateProduitsTable extends Migration
     public function up()
     {
         Schema::create('produits', function (Blueprint $table) {
-            $table->bigIncrements('produit_id')->unsigned();
-            $table->bigInteger('famille_id')->unsigned()->index();
-            $table->bigInteger('fournisseur_id')->unsigned()->index();
+            $table->bigIncrements("produit_id")->unsigned();
+            $table->bigInteger("famille_id")->unsigned()->index();
+            $table->bigInteger("fournisseur_id")->unsigned()->index();
             $table->string("unite_id");
             $table->string("reference")->nullable();
             $table->string("designation")->nullable();
