@@ -14,7 +14,7 @@ class CreateDevisTable extends Migration
     public function up()
     {
         Schema::create('devis', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
         });
     }

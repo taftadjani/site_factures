@@ -14,7 +14,10 @@ class CreateFamillesTable extends Migration
     public function up()
     {
         Schema::create('familles', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id')->unsigned();
+            $table->string("code");
+            $table->string("libelle");
+            $table->double("taxe_par_defaut");
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFacturesTable extends Migration
+class CreateProduitFacture extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFacturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('factures', function (Blueprint $table) {
-            $table->bigIncrements("facture_id")->unsigned();
-            $table->bigInteger("client_id")->unsigned()->index();
+        Schema::create('produit_facture', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('facture_id')->unsigned()->index();
+            $table->bigInteger('produit_id')->unsigned()->index();
+            $table->double("quantite")->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateFacturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('factures');
+        Schema::dropIfExists('produit_facture');
     }
 }

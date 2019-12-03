@@ -11,6 +11,12 @@
 |
 */
 
+use App\Client;
+use App\Facture;
+
 Route::get('/', function () {
-    return view('welcome');
+    $client = Client::find(1);
+    $facture = new Facture();
+    $client->factures()->save($facture);
+    return "ok";
 });
