@@ -12,11 +12,23 @@
 */
 
 use App\Client;
-use App\Facture;
 
 Route::get('/', function () {
-    $client = Client::find(1);
-    $facture = new Facture();
-    $client->factures()->save($facture);
-    return "ok";
+
+    // Les tests
+
+    // CRUD Client
+    // $client = new Client(['nom'=>"Taftadjani", "prenom"=>"Dahirou"]);
+    // $client->save();
+
+    // $client = Client::find(1)->first();
+
+    // $client = Client::find(1)->first();
+    // $client->nom="Zenabou";
+    // $client->save();
+
+    // Client::find(1)->first()->delete();
+    
+    // $client = Client::all()[1]->prenom;
+    return "Great job";
 });

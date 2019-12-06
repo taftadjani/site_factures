@@ -15,18 +15,32 @@ class CreateClientsTable extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('client_id')->unsigned();
+            $table->integer("ville_id")->nullable();
+            $table->integer("civilite_id")->nullable();
+            $table->integer("statut_id")->nullable();
+            $table->integer("genre_id")->nullable();
+            $table->integer("adresse_livraison_id")->nullable();
+            $table->integer("adresse_transporteur_id")->nullable();
+            $table->integer("mode_reglement_id")->nullable();
+            $table->integer("tarif_id")->nullable();
+            $table->integer("condition_paiement_id")->nullable();
             $table->string("nom");
             $table->string("prenom")->nullable();
-            $table->string("civilite")->nullable();
-            $table->string("telephone")->nullable();
-            $table->string("email")->unique();
-            $table->string("code_postal")->nullable();
             $table->string("adresse")->nullable();
-            $table->string("ville")->nullable();
-            $table->string("pays")->nullable();
-            $table->string("statut")->nullable();
-            $table->string("raison_sociale")->nullable();
+            $table->string("telephone")->nullable();
+            $table->string("email")->nullable()->unique();
             $table->string("fax")->nullable();
+            $table->string("code_postal")->nullable();
+            $table->string("raison_sociale")->nullable();
+            $table->string("url")->nullable();
+            $table->string("siret")->nullable();
+            $table->string("code_ape")->nullable();
+            $table->double("tva_intra")->nullable();
+            $table->string("ice")->nullable();
+            $table->string("if")->nullable();
+            $table->string("patente")->nullable();
+            $table->string("cnss")->nullable();
+            $table->string("rc")->nullable();
             $table->timestamps();
         });
     }
