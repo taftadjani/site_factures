@@ -14,18 +14,22 @@ class CreateFournisseursTable extends Migration
     public function up()
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
-            $table->bigIncrements('fournisseur_id')->unsigned();
-            $table->string("code")->nullable();// Aussi appele reference fournisseur
+            $table->increments('fournisseur_id')->unsigned();
+            $table->integer("ville_id")->unsigned()->nullable();
+            $table->string("code");// Aussi appele reference fournisseur
             $table->string("nom");
-            $table->string("prenom")->nullable();
+            $table->string("prenom");
             $table->string("adresse")->nullable();
-            $table->string("phone_fix")->nullable();
-            $table->string("phone_mobile")->nullable();
-            $table->string("code_postal")->nullable();
-            $table->string("ville")->nullable();
-            $table->string("email")->unique();
             $table->string("raison_sociale")->nullable();
+            $table->string("code_postal")->nullable();
+            $table->string("telephone")->nullable();
             $table->string("fax")->nullable();
+            $table->string("email")->nullable()->unique();
+            $table->string("ice")->nullable();
+            $table->string("if")->nullable();
+            $table->string("patente")->nullable();
+            $table->string("cnss")->nullable();
+            $table->string("rc")->nullable();
             $table->timestamps();
         });
     }

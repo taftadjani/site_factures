@@ -14,16 +14,23 @@ class CreateProduitsTable extends Migration
     public function up()
     {
         Schema::create('produits', function (Blueprint $table) {
-            $table->bigIncrements("produit_id")->unsigned();
-            $table->bigInteger("famille_id")->unsigned()->index();
-            $table->bigInteger("fournisseur_id")->unsigned()->index();
-            $table->string("unite_id");
-            $table->string("reference")->nullable();
-            $table->string("designation")->nullable();
+            $table->increments("produit_id")->unsigned();
+            $table->integer("unite_id")->unsigned()->nullable();
+            $table->integer("famille_id")->unsigned()->nullable();
+            $table->integer("fournisseur_id")->unsigned()->nullable();
+            $table->integer("taxe_id")->unsigned()->nullable();
+            $table->string("reference");
+            $table->double("prix_achat");
+            $table->double("prix_vente");
             $table->string("activite")->nullable();
-            $table->string("prix_achat")->nullable();
-            $table->string("img_name")->nullable();// Json {"1":"path1","2":"path2"}
+            $table->string("code_bar_fabricant")->nullable();
+            $table->string("code_bar_interne")->nullable();
+            $table->string("designation")->nullable();
+            $table->double("marge_ht")->default(0.0);
+            $table->string("image_name")->nullable();// Json {"1":"path1","2":"path2"}
             $table->timestamps();
+
+
         });
     }
 

@@ -8,4 +8,5 @@ class Devis extends Model
 {
     protected $table = 'devis';
     protected $primaryKey = 'devis_id';
+    protected $guarded = ['devis_id'];
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFamillesTable extends Migration
+class CreateTaxesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateFamillesTable extends Migration
      */
     public function up()
     {
-        Schema::create('familles', function (Blueprint $table) {
-            $table->increments('famille_id')->unsigned();
-            $table->integer("taxe_id")->nullable(); // taxe par defaut
-            $table->string("libelle")->nullable();
+        Schema::create('taxes', function (Blueprint $table) {
+            $table->increments('taxe_id')->unsigned();
+            $table->string("code");
+            $table->string("libelle");
+            $table->double("taux")->default(0.0);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateFamillesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('familles');
+        Schema::dropIfExists('taxes');
     }
 }

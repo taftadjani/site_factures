@@ -14,18 +14,18 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->bigIncrements('client_id')->unsigned();
-            $table->integer("ville_id")->nullable();
-            $table->integer("civilite_id")->nullable();
-            $table->integer("statut_id")->nullable();
-            $table->integer("genre_id")->nullable();
-            $table->integer("adresse_livraison_id")->nullable();
-            $table->integer("adresse_transporteur_id")->nullable();
-            $table->integer("mode_reglement_id")->nullable();
-            $table->integer("tarif_id")->nullable();
-            $table->integer("condition_paiement_id")->nullable();
+            $table->increments('client_id')->unsigned();
+            $table->integer("ville_id")->unsigned()->nullable();
+            $table->integer("civilite_id")->unsigned()->nullable();
+            $table->integer("statut_id")->unsigned()->nullable();
+            $table->integer("genre_id")->unsigned()->nullable();
+            $table->integer("adresse_livraison_id")->unsigned()->nullable();
+            $table->integer("adresse_transporteur_id")->unsigned()->nullable();
+            $table->integer("mode_reglement_id")->unsigned()->nullable();
+            $table->integer("tarif_id")->unsigned()->nullable();
+            $table->integer("condition_paiement_id")->unsigned()->nullable();
             $table->string("nom");
-            $table->string("prenom")->nullable();
+            $table->string("prenom");
             $table->string("adresse")->nullable();
             $table->string("telephone")->nullable();
             $table->string("email")->nullable()->unique();
