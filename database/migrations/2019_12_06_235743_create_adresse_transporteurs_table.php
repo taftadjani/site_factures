@@ -16,7 +16,6 @@ class CreateAdresseTransporteursTable extends Migration
         Schema::create('adresse_transporteurs', function (Blueprint $table) {
             $table->increments('adresse_transporteur_id')->unsigned();
             $table->integer("ville_id")->unsigned()->nullable();
-            $table->integer("client_id")->unsigned()->nullable();
             $table->string("code_postal")->nullable();
             $table->string("adresse_1")->nullable();
             $table->string("adresse_2")->nullable();

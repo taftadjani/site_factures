@@ -16,7 +16,6 @@ class CreateAdresseLivraisonsTable extends Migration
         Schema::create('adresse_livraisons', function (Blueprint $table) {
             $table->increments('adresse_livraison_id')->unsigned();
             $table->integer("ville_id")->unsigned()->nullable();
-            $table->integer("client_id")->unsigned()->nullable();
             $table->string("code_postal")->nullable();
             $table->string("adresse_1")->nullable();
             $table->string("adresse_2")->nullable();

@@ -11,7 +11,8 @@
 |
 */
 
-use App\Status;
+use App\Client;
+use App\Facture;
 
 Route::get('/', function () {
 
@@ -23,7 +24,8 @@ Route::get('/', function () {
     // $client->save();
 
     // Get
-    // $client = Client::find(1)->first();
+    $client = Client::find(1)->first();
+    dd($client->factures);
 
     // Update
     // $client = Client::find(1)->first();
@@ -92,8 +94,8 @@ Route::get('/', function () {
     // $facture->save();
 
     // Get
-    // $facture = Facture::find(1)->first();
-    // return $facture;
+    // $facture = Facture::find(2)->first();
+    // dd($facture->client);
 
     // Update
     // $facture = Facture::find(1)->first();
@@ -216,5 +218,9 @@ Route::get('/', function () {
     // dd($status);
 
     
+
+    // Facture client
+    // $client->factures()->save($facture);
+
     return "Good job";
 });
