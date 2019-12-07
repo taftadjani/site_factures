@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDevisProduitsTable extends Migration
+class CreateBonLivraisonProduitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateDevisProduitsTable extends Migration
      */
     public function up()
     {
-        Schema::table('devis_produits', function (Blueprint $table) {
-            $table->increments('devis_produit_id');
-            $table->integer('devis_id')->unsigned();
+        Schema::create('bon_livraison_produits', function (Blueprint $table) {
+            $table->increments('bon_livraison_produit_id');
+            $table->integer('bon_livraison_id')->unsigned();
             $table->integer('produit_id')->unsigned();
             $table->double("quantite")->default(0);
         });
@@ -28,8 +28,6 @@ class CreateDevisProduitsTable extends Migration
      */
     public function down()
     {
-        Schema::table('devis_produits', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('bon_livraison_produits');
     }
 }
