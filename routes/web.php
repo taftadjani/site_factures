@@ -15,6 +15,107 @@ use App\Client;
 use App\Facture;
 
 Route::get('/', function () {
+    return view("index");
+});
+
+
+Route::get('/ajout_client', function () {
+    return view("ajout_client");
+});
+
+
+
+Route::get('/liste_clients', function () {
+    return view("liste_clients");
+});
+
+
+
+
+Route::get('/ajout_fournisseur', function () {
+    return view("ajout_fournisseur");
+});
+
+
+
+Route::get('/liste_fournisseurs', function () {
+    return view("liste_fournisseurs");
+});
+
+
+
+Route::get('/ajout_devis', function () {
+    return view("ajout_devis");
+});
+
+
+
+
+Route::get('/liste_devis', function () {
+    return view("liste_devis");
+});
+
+
+
+Route::get('/ajout_bl', function () {
+    return view("ajout_bl");
+});
+
+
+
+
+Route::get('/liste_bl', function () {
+    return view("liste_bl");
+});
+
+
+
+
+Route::get('/ajout_avoir', function () {
+    return view("ajout_avoir");
+});
+
+
+
+
+Route::get('/liste_avoirs', function () {
+    return view("liste_avoirs");
+});
+
+
+
+
+Route::get('/ajout_factures', function () {
+    return view("ajout_factures");
+});
+
+
+
+
+Route::get('/liste_factures', function () {
+    return view("liste_factures");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Les tests
 
@@ -24,8 +125,8 @@ Route::get('/', function () {
     // $client->save();
 
     // Get
-    $client = Client::find(1)->first();
-    dd($client->factures);
+    // $client = Client::find(1)->first();
+    // dd($client->factures);
 
     // Update
     // $client = Client::find(1)->first();
@@ -221,6 +322,3 @@ Route::get('/', function () {
 
     // Facture client
     // $client->factures()->save($facture);
-
-    return "Good job";
-});
