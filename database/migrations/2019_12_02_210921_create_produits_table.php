@@ -22,6 +22,7 @@ class CreateProduitsTable extends Migration
             $table->string("reference");
             $table->double("prix_achat");
             $table->double("prix_vente");
+            $table->double("quantite_stock")->default(0);
             $table->string("activite")->nullable();
             $table->string("code_bar_fabricant")->nullable();
             $table->string("code_bar_interne")->nullable();
