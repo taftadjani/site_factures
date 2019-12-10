@@ -10,22 +10,8 @@ class WelcomeController extends Controller
     {
         return view("index");
     }
-    public function ajout_client()
-    {
-        return view("ajout_client");
-    }
-    public function liste_clients()
-    {
-        return view("liste_clients");
-    }
-    public function ajout_fournisseur()
-    {
-        return view("ajout_fournisseur");
-    }
-    public function liste_fournisseurs()
-    {
-        return view("liste_fournisseurs");
-    }
+
+    
     public function ajout_devis()
     {
         return view("ajout_devis");

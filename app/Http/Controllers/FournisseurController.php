@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fournisseur;
+use App\Ville;
 use Illuminate\Http\Request;
 
 class FournisseurController extends Controller
@@ -14,7 +15,8 @@ class FournisseurController extends Controller
      */
     public function index()
     {
-        //
+        $fournisseurs = Fournisseur::all();
+        return view("liste_fournisseurs", compact('fournisseurs'));
     }
 
     /**
@@ -24,7 +26,11 @@ class FournisseurController extends Controller
      */
     public function create()
     {
-        //
+        // Ville
+        $villes = Ville ::all();
+
+
+        return view("ajout_fournisseur", ['villes'=>$villes]);
     }
 
     /**

@@ -15,7 +15,7 @@ class CreateConditionPaiementsTable extends Migration
     {
         Schema::create('condition_paiements', function (Blueprint $table) {
             $table->increments('condition_paiement_id')->unsigned();
-            $table->string("texte")->nullable();
+            $table->string("texte");
             $table->date("date_paiement")->default(now());
             $table->timestamps();
         });

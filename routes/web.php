@@ -12,10 +12,11 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('/ajout_client', 'WelcomeController@ajout_client');
-Route::get('/liste_clients', 'WelcomeController@liste_clients');
-Route::get('/ajout_fournisseur', 'WelcomeController@ajout_fournisseur');
-Route::get('/liste_fournisseurs', 'WelcomeController@liste_fournisseurs');
+Route::get('/ajout_client', 'ClientController@create');
+Route::get('/liste_clients', 'ClientController@index');
+Route::get('/ajout_fournisseur', 'FournisseurController@create');
+Route::get('/liste_fournisseurs', 'FournisseurController@index');
+
 Route::get('/ajout_devis', 'WelcomeController@ajout_devis');
 Route::get('/liste_devis', 'WelcomeController@liste_devis');
 Route::get('/ajout_bl', 'WelcomeController@ajout_bl');
