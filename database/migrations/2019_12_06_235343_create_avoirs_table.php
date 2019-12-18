@@ -22,6 +22,7 @@ class CreateAvoirsTable extends Migration
             $table->integer("tarif_id")->unsigned()->nullable();
             $table->string("etat")->nullable();
             $table->string("numero")->nullable();
+            $table->string("paiement")->nullable();
             $table->date("date_creation")->default(now());
             $table->date("date_fermeture")->default(now());
             $table->date("date_echeance")->default(now());

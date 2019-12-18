@@ -33,7 +33,10 @@ class CreateFacturesTable extends Migration
             $table->date("date_paiement")->nullable();
             $table->double("remise_globale")->default(0.0);
             $table->string("observation")->nullable();
+         
+            $table->string("observation")->nullable();
             $table->string("annotation")->nullable();
+          
             $table->timestamps();
         });
     }

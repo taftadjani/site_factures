@@ -18,6 +18,9 @@ class CreateFactureProduitsTable extends Migration
             $table->integer('facture_id')->unsigned();
             $table->integer('produit_id')->unsigned();
             $table->double("quantite")->default(0);
+            $table->double('remise')->unsigned();
+            $table->string("activite")->nullable();
+
         });
     }
 

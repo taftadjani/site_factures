@@ -20,6 +20,8 @@ class CreateDevisTable extends Migration
             $table->integer("taxe_id")->unsigned()->nullable();
             $table->integer("client_id")->unsigned()->nullable();
             $table->integer("condition_paiement_id")->unsigned()->nullable();
+            $table->string("paiement")->nullable();
+            $table->date("date_paiement")->nullable();
             $table->string("etat")->nullable();
             $table->string("numero")->nullable();
             $table->date("date_creation")->default(now());

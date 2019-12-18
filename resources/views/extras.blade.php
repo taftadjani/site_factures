@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <title>Facture finale</title>
+    <title>{{$type}} finale</title>
     <meta content="Dashboard Proxima" name="description">
     <meta content="Proxima" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
                         <div class="page-title-box d-print-none">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title m-0">Facture Proxima</h4>
+                                    <h4 class="page-title m-0">{{$type}} Proxima</h4>
                                 </div>
                                
                                 <!-- end col -->
@@ -84,13 +84,12 @@
                 <!-- end page title -->
 
                 <?php
-                    $cl=DB::table('clients')
-                    ->where('client_id', $client)
-                    ->get();
+                   
                    $y=date('Y')
                    
                 ?>
-                @foreach($cl as $c)
+                 @foreach($facture as $f)
+                @foreach($client as $c)
                 <div class="row">
                     <div class="col-12">
                         <div class="card m-b-30">
@@ -98,7 +97,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="invoice-title">
-                                            <h4 class="float-right font-16"><strong>Facture #{{$numero}}</strong></h4>
+                                            <h4 class="float-right font-16"><strong>{{$type}} #{{$f->numero}}</strong></h4>
                                             <h3 class="m-t-0"><img src="images/logo_dark.png" alt="logo" height="28"></h3>
                                         </div>
                                         <hr>
@@ -108,7 +107,7 @@
                                             <div class="col-6 text-right"><address><strong>Shipped To:</strong><br>Kenny Rigdon<br>1234 Main<br>Apt. 4B<br>Springfield, ST 54321</address></div>
                                         </div>
                                         <div class="row">
-                                        <div class="col-6 m-t-30"><address><strong>Methode de Payement:</strong><br> {{$payement}}</address></div>
+                                        
                                             <div class="col-6 m-t-30 text-right"><address><strong>Order Date:</strong><br>{{$y}}<br><br></address></div>
                                         </div>
                                     </div>
@@ -117,7 +116,7 @@
                                     <div class="col-12">
                                         <div class="panel panel-default">
                                             <div class="p-2">
-                                                <h3 class="panel-title font-20"><strong>Récapitulatif Facture</strong></h3>
+                                                <h3 class="panel-title font-20"><strong>Récapitulatif {{$type}}</strong></h3>
                                             </div>
                                             <div class="">
                                                 <div class="table-responsive">
@@ -172,8 +171,8 @@
                                                             @endforeach
                                                             @endforeach
                                                            <?php 
-                                                              $tar=$total-(($total*$remise/100));
-                                                              $rem=($total*$remise/100);
+                                                              $tar=$total-(($total*$f->remise_globale/100));
+                                                              $rem=($total*$f->remise_globale/100);
                                                            ?>
                                                             <tr>
                                                                 <td class="thick-line"></td>
@@ -191,7 +190,7 @@
                                                                 <td class="thick-line"></td>
                                                                 <td class="thick-line text-center"><strong>Remise(%)</strong></td>
                                                                 <td class="thick-line"></td>
-                                                                <td class="thick-line text-center">{{$remise}}</td>
+                                                                <td class="thick-line text-center">{{$f->remise_globale}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="thick-line"></td>
@@ -231,6 +230,7 @@
                 </div>
                 <!-- end row -->
             </div>
+            @endforeach
             @endforeach
             <!-- container fluid -->
         </div>

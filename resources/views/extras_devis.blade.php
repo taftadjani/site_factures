@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <title>Facture finale</title>
+    <title>Devis finale</title>
     <meta content="Dashboard Proxima" name="description">
     <meta content="Proxima" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
                         <div class="page-title-box d-print-none">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title m-0">Facture Proxima</h4>
+                                    <h4 class="page-title m-0">Devis Proxima</h4>
                                 </div>
                                
                                 <!-- end col -->

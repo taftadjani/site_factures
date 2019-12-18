@@ -18,6 +18,8 @@ class CreateBonLivraisonProduitsTable extends Migration
             $table->integer('bon_livraison_id')->unsigned();
             $table->integer('produit_id')->unsigned();
             $table->double("quantite")->default(0);
+            $table->double("remise")->default(0);
+            $table->string("activite")->nullable();
         });
     }
 
