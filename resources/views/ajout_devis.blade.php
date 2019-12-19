@@ -537,7 +537,7 @@
                                     <div class="table-title">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <h2>Détails <b>Facture</b></h2>
+                                                <h2>Détails <b>Devis</b></h2>
                                             </div>
                                             <div class="col-sm-3">
                                                 <button type="button" class="btn btn-info add-new" onclick="javascript:ajoutLigne()"><i class="fa fa-plus"></i> Ajouter ligne</button>

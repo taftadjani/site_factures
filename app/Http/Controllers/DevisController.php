@@ -80,7 +80,7 @@ class DevisController extends Controller
                 
 
                 if($qt<$qte){
-                    return redirect()->route('ajout_factures');
+                    return redirect()->route('ajout_devis');
                 }
                 else
                 $nv_qtep=$qt-$qte;
@@ -128,7 +128,7 @@ class DevisController extends Controller
                 $nv_qte=$qt-$qteq;
 
             DB::table('devis_produits')->insert(
-                    ['facture_id' => $idFact, 'produit_id' => $prodq, 'remise' => $remiseq, 'quantite'=>$qteq , 'activite'=>$activiteq]); 
+                    ['devis_id' => $idFact, 'produit_id' => $prodq, 'remise' => $remiseq, 'quantite'=>$qteq , 'activite'=>$activiteq]); 
                       
              DB::table('produits')
                     ->where('produit_id', $prodq)

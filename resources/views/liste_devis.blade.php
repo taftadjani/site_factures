@@ -140,7 +140,7 @@
                         <div class="page-title-box">
                             <div class="row align-items-center">
                                 <div class="col-md-8">
-                                    <h4 class="page-title m-0">Liste des Factures</h4>
+                                    <h4 class="page-title m-0">Liste des Devis</h4>
                                 </div>
                              
                             </div>
