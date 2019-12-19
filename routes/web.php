@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/factures', 'WelcomeController@index');
 Route::get('/ajout_client', 'ClientController@create');
 Route::get('/liste_clients', 'ClientController@index');
 Route::get('/ajout_fournisseur', 'FournisseurController@create');
@@ -38,6 +38,13 @@ Route::get('/ajout_avoir', 'WelcomeController@ajout_avoir')->name('ajout_avoir')
 Route::get('/liste_avoirs', 'WelcomeController@liste_avoirs');
 Route::get('/ajout_factures', 'WelcomeController@ajout_factures')->name('ajout_factures');
 Route::get('/liste_factures', 'WelcomeController@liste_factures');
+
+Route::get('/', function () {
+  
+    return view('login');
+});
+
+Route::post('/loginVerif', 'WelcomeController@loginVerif')->name('loginVerif');
 Route::resource('Client', 'ClientController');
 Route::resource('Fournisseur', 'FournisseurController');
 Route::resource('Facture', 'FactureController');
