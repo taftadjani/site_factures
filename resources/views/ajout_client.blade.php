@@ -149,7 +149,7 @@
                                             class="dripicons-user text-muted"></i> Profile</a>
 
                                     <div class="dropdown-divider"></div><a target="_self" class="dropdown-item"
-                                        href="#"><i class="dripicons-exit text-muted"></i> Logout</a>
+                                        href="/"><i class="dripicons-exit text-muted"></i> Logout</a>
                                 </div>
                             </li>
                         </ul>

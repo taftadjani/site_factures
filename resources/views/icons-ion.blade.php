@@ -202,7 +202,7 @@
                 <li class="list-inline-item dropdown notification-list nav-user"><a  target="_self"  class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"><img src="images/users/avatar-6.jpg" alt="user" class="rounded-circle"> <span class="d-none d-md-inline-block ml-1">David M. Bailey <i class="mdi mdi-chevron-down"></i></span></a>
                     <div
                         class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown"><a   target="_self" class="dropdown-item" href="#"><i class="dripicons-user text-muted"></i> Profile</a> <a   target="_self" class="dropdown-item" href="#"><i class="dripicons-wallet text-muted"></i> My Wallet</a> <a   target="_self" class="dropdown-item" href="#"><span class="badge badge-success float-right m-t-5">5</span><i class="dripicons-gear text-muted"></i> Settings</a>                        <a  target="_self"  class="dropdown-item" href="#"><i class="dripicons-lock text-muted"></i> Lock screen</a>
-                        <div class="dropdown-divider"></div><a  target="_self"  class="dropdown-item" href="#"><i class="dripicons-exit text-muted"></i> Logout</a></div>
+                        <div class="dropdown-divider"></div><a  target="_self"  class="dropdown-item" href="/"><i class="dripicons-exit text-muted"></i> Logout</a></div>
             </li>
             </ul>
             <ul class="list-inline menu-left mb-0">
