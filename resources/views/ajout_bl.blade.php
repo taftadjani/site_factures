@@ -511,7 +511,13 @@
                                                         <input id="remise" name="remise" class="form-control"  type="text"  onkeypress="javascript:NumOnly(this.value)" onpaste="javascript:return false" onkeyup="javascript:calculRemise(0)" required >
                                                     </td>
                                                     <td>
-                                                         <input id="activite" name="activite" class="form-control" type="text" required>
+                                                    <select name="activite" id="activite" class="form-control " required >
+                                                            <option selected="selected" disabled>Choisir une activité</option>
+                                                          
+                                                            <option  value='marchandise' > marchandise</option>
+                                                            <option  value='service' > service</option>
+                                                           
+                                                         </select>
                                                     </td>
                                                     <td>
                                                     <input id="totalHT" name="totalHT" class="form-control" type="text" readOnly  >
@@ -573,7 +579,7 @@
             cell2.innerHTML = " <input id='pu"+i+"' name='pu"+i+"' class='form-control' type='text' readOnly>";
             cell3.innerHTML = " <input id='qte"+i+"'  name='qte"+i+"' class='form-control' type='text'  onkeypress='javascript:NumOnly(this.value)' onpaste='javascript:return false' onkeyup='javascript:calculHt("+i+")' required>"
             cell4.innerHTML = " <input id='remise"+i+"' name='remise"+i+"' class='form-control'  type='text'  onkeypress='javascript:NumOnly(this.value)' onpaste='javascript:return false' onkeyup='javascript:calculRemise("+i+")' required>";
-            cell5.innerHTML = " <input id='activite"+i+"' name='activite"+i+"' class='form-control' type='text' required> ";
+            cell5.innerHTML = " <select name='activite"+i+"' id='activite"+i+"' class='form-control ' required > <option selected='selected' disabled>Choisir une activité</option> <option  value='marchandise' > marchandise</option> <option  value='service' > service</option>;</select> ";
             cell6.innerHTML = " <input id='totalHT"+i+"' name='totalHT"+i+"' class='form-control' type='text' readOnly  >";
             cell7.innerHTML = "<a  target='_self' class='add' title='Add' data-toggle='tooltip'><i class='material-icons'>&#xE03B;</i></a> <a  target='_self' class='edit' title='Edit' data-toggle='tooltip'><i class='material-icons'>&#xE254;</i></a><a  target='_self' class='delete' title='Delete'><i class='material-icons'>&#xE872;</i></a>";
             
