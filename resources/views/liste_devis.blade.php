@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <title>Listes des Clients - Proxima</title>
+    <title>Listes des Devis - Proxima</title>
     <meta content="Admin Dashboard" name="description">
     <meta content="ThemeDesign" name="author">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,6 +18,10 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/icons.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body class="fixed-left">
@@ -190,7 +194,19 @@
                                 
                                                 <a class="item" data-toggle="tooltip" data-placement="top" id="{{$fact->devis_id}}" name="factid" href='/extrasDevis?idFacture={{$fact->devis_id}}&&idClient={{$c->client_id}}' class="btn btn-xs btn-info pull-right">
                                         
-                                            <i class="fas fa-pencil-alt"></i>
+                                                <i class="fa fa-file"></i>
+                                                </a>
+
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                <a class="item" data-toggle="tooltip" data-placement="top" id="{{$fact->devis_id}}" name="factid" href='/code_edit_devis?idFacture={{$fact->devis_id}}&&idClient={{$c->client_id}}' class="btn btn-xs btn-info pull-right">
+                                                <i class="fas fa-pencil-alt"></i>
+                                           
+                                                </a>
+                                               
+                                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                <a class="item" data-toggle="tooltip" data-placement="top" id="{{$fact->devis_id}}" name="factid" href='/code_delete_devis?idFacture={{$fact->devis_id}}&&idClient={{$c->client_id}}' class="btn btn-xs btn-info pull-right">
+                                                <i class="fa fa-remove" style="font-size:20px"></i>
+                                           
                                                 </a>
                                             </div>
                                             </td>

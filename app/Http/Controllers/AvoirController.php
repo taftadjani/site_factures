@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Avoir;
 use Illuminate\Http\Request;
 use DB;
-
+use Illuminate\Support\Facades\Session;
 class AvoirController extends Controller
 {
     /**
@@ -17,7 +17,101 @@ class AvoirController extends Controller
     {
         //
     }
+    
+    public function code_edit_av(Request $request)
+    {
+        $idFacture=$_GET['idFacture'];
+        $idClient=$_GET['idClient'];
+        return view('code_edit_av',['idfacture'=>$idFacture,'idClient'=>$idClient]);
+    }
+    public function verif_edit_av(Request $request)
+    {
+      
+           $idfacture=$request->input('idfacture');
+         
+            error_log($request->input('code_verif'));
+            $test = DB::table("codes")
+            ->where("code",$request->input('code_verif'))
+            ->select('codes.*')
+            ->get();
+           
+            
+            error_log(count($test)==0);
 
+       
+        if(count($test)==0){
+           Session::put('errorLog', 'Code de vérification incorrecte !!');
+           return view('code_edit_av',['idfacture'=>$idfacture]);
+            
+         
+          } else{
+            $fact = DB::table("avoirs")
+            ->where("avoir_id",$idfacture)
+            ->select('avoirs.*')
+            ->get();
+        
+            
+
+            $clients = DB::table('clients')
+                   ->get();
+        $tarifs = DB::table('tarifs')
+                   ->get();
+        $condition = DB::table('condition_paiements')
+                   ->get();
+
+        $produits = DB::table('produits')
+                   ->get();
+           return view('avoir_edit',['facture'=>$fact,'clients'=>$clients,'tarifs'=>$tarifs,'condition'=>$condition,'produits'=>$produits]);
+    
+            
+            }
+    
+
+           
+        
+    }
+
+
+
+    public function code_delete_av(Request $request)
+    {
+        $idFacture=$_GET['idFacture'];
+        $idClient=$_GET['idClient'];
+        return view('code_delete_av',['idfacture'=>$idFacture,'idClient'=>$idClient]);
+    }
+    public function verif_delete_av(Request $request)
+    {
+      
+           $idfacture=$request->input('idfacture');
+         
+            error_log($idfacture);
+            error_log($request->input('code_verif'));
+            $test = DB::table("codes")
+            ->where("code",$request->input('code_verif'))
+            ->select('codes.*')
+            ->get();
+           
+            
+
+       
+        if(count($test)==0){
+           Session::put('errorLog', 'Code de vérification incorrecte !!');
+           return view('code_delete_av',['idfacture'=>$idfacture]);
+            
+         
+          } else{
+            
+            DB::table('avoirs')->where("avoir_id",$idfacture)->delete();
+            DB::table('avoir_produits')->where("avoir_id",$idfacture)->delete();
+            $factures=DB::table('avoirs')
+        ->get();
+
+        return view("liste_avoirs",['factures'=>$factures]); }
+    
+
+           
+        
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -212,7 +306,122 @@ class AvoirController extends Controller
      */
     public function update(Request $request, Avoir $avoir)
     {
-        //
+        $client=$request->input('client');
+        $etat=$request->input('etat');
+        $numero=$request->input('numero');
+        $date_creation=$request->input('date_creation');
+        $date_fermeture=$request->input('date_fermeture');
+
+        $date_validite=$request->input('date_validite');
+        
+        $imprime=$request->input('imprime');
+        $date_impression=$request->input('date_impression');
+        $envoi=$request->input('envoi');
+        $date_envoi=$request->input('date_envoi');
+        $idfacture=$request->input('idfacture');
+
+        $payee=$request->input('remb');
+        $date_payement=$request->input('date_remb');
+        $payement_par_defaut=$request->input('payement_par_defaut');
+        $tarif=$request->input('tarif');
+        $remiseTotal=$request->input('remiseTotal');
+
+        $condition=$request->input('condition');
+        $observation=$request->input('observation');
+        $annotation=$request->input('annotation');
+
+
+        DB::table('avoirs')->where('avoir_id', $idfacture)->update(
+            ['tarif_id' => $tarif, 'client_id' => $client, 'condition_paiement_id' => $condition, 'etat'=>'validée','numero'=>$numero ,
+             'date_creation' => $date_creation,'impression'=>$imprime,
+             'date_impression' => $date_impression, 'envoi'=>$envoi,'date_envoi'=>$date_envoi,
+             'paiement' => $payement_par_defaut, 'date_remboursement'=>$date_payement,'remboursement'=>$payee,'remise_globale'=>$remiseTotal,
+             'observation' => $observation, 'annotation'=>$annotation]  );
+              	
+       
+
+
+             $nblp=$request->input('nblp');
+
+             for($i = 1;$i<=$nblp;$i++)
+             {  
+                 $id_prod_fact=$request->input('id_prod_fact'.$i);
+                 $puj=$request->input('puj'.$i);
+                 $prodj=$request->input('prodj'.$i);
+                 $qtej=$request->input('qtej'.$i);
+                 $remisej=$request->input('remisej'.$i);
+                 $activitej=$request->input('activitej'.$i);
+                 $totalHTj=$request->input('totalHTj'.$i);
+     
+     
+                 DB::table('avoir_produits')->where('avoir_produit_id', $id_prod_fact)->update(
+                         ['produit_id' => $prodj, 'remise' => $remisej, 'quantite'=>$qtej , 'activite'=>$activitej]); 
+                           
+                 
+                 
+     
+              
+                
+             
+                
+                
+             }
+
+        
+        
+        
+        
+    
+        $nbl=$request->input('nblignes');
+       
+        for($i = 1;$i<=$nbl;$i++)
+        {  
+            error_log('pu'.$i);
+            $puq=$request->input('pu'.$i);
+            $prodq=$request->input('prod'.$i);
+            $qteq=$request->input('qte'.$i);
+            $remiseq=$request->input('remise'.$i);
+            $activiteq=$request->input('activite'.$i);
+            $totalHTq=$request->input('totalHT'.$i);
+
+          
+            
+            $qteStock=DB::table('produits')
+                    ->where('produit_id', $prodq)
+                    ->pluck('quantite_stock');
+
+           
+
+            DB::table('avoir_produits')->insert(
+                    ['facture_id' => $idfacture, 'produit_id' => $prodq, 'remise' => $remiseq, 'quantite'=>$qteq , 'activite'=>$activiteq]); 
+                      
+             
+            
+
+            
+
+           //`facture_produit_id`, `facture_id`, `produit_id`, `remise`, `quantite`
+         
+           
+        
+           
+           
+        }
+      
+
+        $produits_fact=DB::table('avoir_produits')
+        ->where('avoir_id', $idfacture)
+      
+        ->get();
+        error_log("client");
+        error_log($client);
+        $factures=DB::table('avoirs')
+        ->get();
+
+        return view("liste_avoirs",['factures'=>$factures]);
+    
+       
+   
     }
 
     /**
