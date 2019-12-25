@@ -207,8 +207,8 @@
                                                         sociale</label>
                                                 <input class="form-control" type="text" placeholder="Raison sociale" id="example-text-input" name="raison_sociale" value="{{ $fournisseur->raison_sociale }}">
                                                 </div>
-                                                <div class="form-group"><label>Nom</label>
-                                                    <input class="form-control" type="text" value="{{ $fournisseur->code }}" placeholder="Code" name="code" required>
+                                                <div class="form-group"><label>Code</label>
+                                                    <input class="form-control" type="text" placeholder="Code" name="code" required>
                                                 </div>
                                                 <div class="form-group"><label>Nom</label>
                                                     <input class="form-control" type="text" value="{{ $fournisseur->nom }}" placeholder="Nom" name="nom" required>

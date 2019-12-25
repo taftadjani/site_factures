@@ -199,6 +199,8 @@
                                                     <th>Telephone</th>
                                                     <th>Civilite</th>
                                                     <th>Fax</th>
+                                                    <th>Delete</th>
+                                                    <th>Modifier</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -223,6 +225,19 @@
                                                         @endforeach
                                                     </td>
                                                     <td>{{ $client->fax }}</td>
+                                                    <td>
+
+                                                        <a href="{{ url('delete_client') }}/{{ $client->client_id }}" class="text-danger ">
+                                                            <div class="text-center py-md-1 px-md-1 font-weight-bold font-italic">Delete
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                    <a href="{{ url('modify_client') }}?id={{ $client->client_id }}" class="text-warning " target="_self">
+                                                            <div class="text-center py-md-1 px-md-1 font-weight-bold font-italic">Modifier
+                                                            </div>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                                 @endforeach
 

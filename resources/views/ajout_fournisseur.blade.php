@@ -185,17 +185,20 @@
                                         <div class="card-body">
                                             <h4 class="mt-0 header-title">Fiche Fournisseur</h4>
                                             <p class="text-muted m-b-30">Ajouter un fournisseur</p>
-                                            <form action="#">
-
+                                            <form action="Fournisseur" method="POST">
+ {{ csrf_field() }}
                                                 <div class="form-group"><label for="example-text-input">Raison
                                                         sociale</label>
                                                     <input class="form-control" type="text" placeholder="Raison sociale" id="example-text-input" name="raison_sociale">
                                                 </div>
+                                                <div class="form-group"><label>Code</label>
+                                                    <input class="form-control" type="text" placeholder="Code" name="code" required>
+                                                </div>
                                                 <div class="form-group"><label>Nom</label>
-                                                    <input class="form-control" type="text" placeholder="Nom" name="nom">
+                                                    <input class="form-control" type="text" placeholder="Nom" name="nom" required>
                                                 </div>
                                                 <div class="form-group"><label>Prénom</label>
-                                                    <input class="form-control" type="text" placeholder="prénom" name="prenom">
+                                                    <input class="form-control" type="text" placeholder="prénom" name="prenom" required>
                                                 </div>
                                                 <div class="form-group"><label>Adresse</label>
                                                     <input class="form-control" type="text" placeholder="Adresse" name="adresse">

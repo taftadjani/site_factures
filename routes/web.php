@@ -11,6 +11,22 @@
 |
 */
 
+Route::get('/modify_fournisseur', 'FournisseurController@edit');
+Route::get('/modify_fournisseur/{id}', 'FournisseurController@update');
+Route::get('/delete_fournisseur/{id}', 'FournisseurController@destroy');
+
+
+Route::get('/modify_client', 'ClientController@edit');
+Route::get('/update_client/{id}', 'ClientController@update');
+Route::get('/delete_client/{id}', 'ClientController@destroy');
+
+Route::get('/ajout_produit', 'ProduitController@create');
+Route::get('/modify_produit', 'ProduitController@edit');
+Route::get('/modify_produit/{id}', 'ProduitController@update');
+Route::get('/delete_produit/{id}', 'ProduitController@destroy');
+Route::get('/liste_produits', 'ProduitController@index');
+Route::get('/ajout_famille', 'FamilleController@create')->name('ajout_famille');
+
 Route::get('/factures', 'WelcomeController@index');
 Route::get('/ajout_client', 'ClientController@create');
 Route::get('/liste_clients', 'ClientController@index');
@@ -83,3 +99,5 @@ Route::resource('Facture', 'FactureController');
 Route::resource('Devis', 'DevisController');
 Route::resource('Bon_livraison', 'Bon_livraisonController');
 Route::resource('Avoir', 'AvoirController');
+Route::resource('Produit', 'ProduitController');
+Route::resource('Famille', 'FamilleController');

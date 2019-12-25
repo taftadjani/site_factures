@@ -165,6 +165,8 @@
                                             <th>Fax</th>
                                             <th>Adresse</th>
                                             <th>Code Postal</th>
+                                                    <th>Delete</th>
+                                                    <th>Modifier</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -181,6 +183,19 @@
                                                         {{ $fournisseur->adresse }}
                                                     </td>
                                                     <td>{{ $fournisseur->code_postal }}</td>
+                                                    <td>
+
+                                                        <a href="{{ url('delete_fournisseur') }}/{{ $fournisseur->fournisseur_id }}" class="text-danger ">
+                                                            <div class="text-center py-md-1 px-md-1 font-weight-bold font-italic">Delete
+                                                            </div>
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                    <a href="{{ url('modify_fournisseur') }}?id={{ $fournisseur->fournisseur_id }}" class="text-warning " target="_self">
+                                                            <div class="text-center py-md-1 px-md-1 font-weight-bold font-italic">Modifier
+                                                            </div>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
 

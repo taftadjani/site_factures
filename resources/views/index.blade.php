@@ -94,6 +94,23 @@
                             </ul>
                         </li>
 
+
+
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="dripicons-document"></i> <span>Gestion des produits </span><span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ url('/ajout_produit') }}">Ajouter un Produit</a></li>
+                                <li><a href="{{ url('/liste_produits') }}">Liste des Produits</a></li>
+                                <li><a href="{{ url('/ajout_famille') }}">Ajouter une Famille</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="has_sub"><a href="javascript:void(0);" class="waves-effect"><i class="dripicons-document"></i> <span>Gestion de stocks </span><span class="menu-arrow float-right"><i class="mdi mdi-chevron-right"></i></span></a>
+                            <ul class="list-unstyled">
+                                <li><a href="{{ url('/ajout_stock') }}">Ajouter un stock</a></li>
+                                <li><a href="{{ url('/liste_stock') }}">Liste des Stocks</a></li>
+                                <li><a href="{{ url('/gest_commandes') }}">Gestion commande fournisseurs</a></li>
+                            </ul>
+                        </li>
                         
                     </ul>
                </div>
